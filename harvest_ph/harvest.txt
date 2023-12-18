@@ -1,0 +1,130 @@
+
+Nov 2023 CrIS J4 PFH Plateau 21
+---------------------------------
+
+TVAC analysis home:
+  /asl/cris/tvac_j4/extracted/hourly_archive/J4
+
+check what we've got, initially it looks like cmd and tcr files for
+Oct 1,2,5,6 and ccs and data files for most of Oct
+
+get ILS test segment start and stop times
+  ls SQLLOGS/2023/11_Nov/{01..06}/??00/cmd_*.csv
+  cat SQLLOGS/2023/11_Nov/{01..06}/??00/cmd_*.csv | grep ILS_Spectral_Cal | more
+
+browse tcr files for PFL, PFH, MN, Plateau number:
+  ls SQLLOGS/2023/11_Nov/{01..06}/??00/tcr_*.csv
+  more SQLLOGS/2023/11_Nov/{01..06}/??00/tcr_*.csv
+
+browse CCS data
+  ls TEM_Collection/CCS/Collection/2023/11_Nov/{03..04}
+
+browse packet data
+  ls Collection/2023/11_Nov/30/2200
+
+notes 
+ T1 = hot, T2 = cold
+ packets are 8 seconds long
+
+PFH side 1 LW CO2
+------------------
+do the harvest
+hh=~/cris/tvac_j4/11-17_ph_s1_CO2
+
+ET1 times from log
+11/17/2023 20:54:09
+11/17/2023 21:10:30
+cat Collection/2023/11_Nov/17/2000/20231117_20_{54..59}_??_???.dat >  $hh/ET1.dat
+cat Collection/2023/11_Nov/17/2100/20231117_21_{00..10}_??_???.dat >> $hh/ET1.dat
+
+ET2 times from log
+11/17/2023 15:21:22
+11/17/2023 15:37:43
+cat Collection/2023/11_Nov/17/1500/20231117_15_{21..37}_??_???.dat > $hh/ET2.dat
+
+FT2 times from log
+11/17/2023 12:35:12
+11/17/2023 12:50:59
+cat Collection/2023/11_Nov/17/1200/20231117_12_{35..50}_??_???.dat > $hh/FT2.dat
+
+FT1 times from log
+11/17/2023 22:39:06
+11/17/2023 22:54:33
+cat Collection/2023/11_Nov/17/2200/20231117_22_{39..54}_??_???.dat > $hh/FT1.dat
+
+PFH side 1 MW CH4
+------------------
+do the harvest
+hh=~/cris/tvac_j4/11-18_ph_s1_CH4
+
+ET1 times from log
+11/18/2023 01:13:18
+11/18/2023 01:24:52
+cat Collection/2023/11_Nov/18/0100/20231118_01_{13..24}_??_???.dat > $hh/ET1.dat
+
+ET2 times from log
+11/18/2023 09:19:13
+11/18/2023 09:33:47
+cat Collection/2023/11_Nov/18/0900/20231118_09_{19..33}_??_???.dat > $hh/ET2.dat
+
+FT2 times from log
+11/18/2023 06:29:50
+11/18/2023 06:45:53
+cat Collection/2023/11_Nov/18/0600/20231118_06_{29..45}_??_???.dat > $hh/FT2.dat
+
+FT1 times from log
+11/18/2023 02:06:02
+11/18/2023 02:16:29
+cat Collection/2023/11_Nov/18/0200/20231118_02_{06..16}_??_???.dat > $hh/FT1.dat
+
+PFH side 1 SW CO
+------------------
+do the harvest
+hh=~/cris/tvac_j4/11-16_ph_s1_CO
+
+ET1 times from log
+11/16/2023 15:37:12
+11/16/2023 15:55:30
+cat Collection/2023/11_Nov/16/1500/20231116_15_{37..55}_??_???.dat >  $hh/ET1.dat
+
+ET2 times from log
+11/16/2023 21:47:53
+11/16/2023 22:01:48
+cat Collection/2023/11_Nov/16/2100/20231116_21_{47..59}_??_???.dat >  $hh/ET2.dat
+cat Collection/2023/11_Nov/16/2200/20231116_22_{00..01}_??_???.dat >> $hh/ET2.dat
+
+FT2 times from log
+11/16/2023 19:15:54
+11/16/2023 19:30:22
+cat Collection/2023/11_Nov/16/1900/20231116_19_{15..30}_??_???.dat >  $hh/FT2.dat
+
+FT1 times from log
+11/16/2023 16:26:45
+11/16/2023 16:41:57
+cat Collection/2023/11_Nov/16/1600/20231116_16_{26..41}_??_???.dat >  $hh/FT1.dat
+
+PFH side 2 LW CO2
+------------------
+do the harvest
+hh=~/cris/tvac_j4/11-22_ph_s2_CO2
+
+ET1 times from log
+11/22/2023 00:05:48
+11/22/2023 00:20:32
+cat Collection/2023/11_Nov/22/0000/20231122_00_{05..20}_??_???.dat > $hh/ET1.dat
+
+ET2 times from log
+11/22/2023 06:34:30
+11/22/2023 06:48:40
+cat Collection/2023/11_Nov/22/0600/20231122_06_{34..48}_??_???.dat > $hh/ET2.dat
+
+FT2 times from log
+11/22/2023 04:01:26
+11/22/2023 04:16:56
+cat Collection/2023/11_Nov/22/0400/20231122_04_{01..16}_??_???.dat > $hh/FT2.dat
+
+FT1 times from log
+11/22/2023 00:43:34
+11/22/2023 01:00:12
+cat Collection/2023/11_Nov/22/0000/20231122_00_{43..59}_??_???.dat > $hh/FT1.dat
+

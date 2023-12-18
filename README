@@ -1,0 +1,84 @@
+
+CrIS J4 Nov-Dec 2023 TVAC gas cell tests and analysis
+------------------------------------------------------
+
+The git repo does not include mat files from the working version,
+which would take up too much space for github.  So you can't run or
+rerun the tests from the repo.  The github version does include all
+fig and pdf files for the reports.  These notes are for the direct
+transmittance method, working from count spectra; see README.cal for
+transmittance from calibrated radiances.
+
+The man steps for the original direct transmittance method are
+
+  1. grab a subset from the packet stream spanning each test leg
+     with shell script commands, see e.g. harvest_mn/harvest.txt
+
+  2. find the ES (gas cell) looks with spec_test1.m.  comment out
+     any time subsetting and run each leg a few times to get new
+     subsets.
+
+  3. use spec_test2.m for an initial comparison of obs and calc
+
+  4. use fit_run.m to fit obs to cals and get met laser residuals
+
+Work is done first in the harvest and then the gas cell test
+directories, for example harvest_ph and 11-17_ph_s1_CO2.  The
+initial harvest steps are shell commands listed in harvest.txt,
+in each harvest directory.  This produces four CCSDS packet files:
+ET1, ET2, FT1, and FT2.dat in the gas cell test directories.  These
+are translated to .mat files with source/dat2mat.m.  dat2mat needs
+an initial btrim_cache.mat file from a similar test.
+
+If the Excel summary logs for the ILS tests are not available,
+the next step is to get an overview of the gas cell test data, by
+running source/read.ccs.m.  This produces a summary plot for one
+day, and saves a summary of the ccs data for that day, for example
+ccs_data_02_12.mat.  Then edit and run plot_legs_LW, MW, and SW,
+using start and stop times saved in harvest.txt, to see gas cell
+details of each test leg.  The edited plot_legs scripts become the
+home for the gas cell measurements.
+
+Then run spec_test1 to get the ES (gas cell look) subintervals.
+Comment out any old time spans in the switch tleg statement, run
+spec test, zoom in on the gas cell subsequence, and add the new
+times.  spec_test1 plots count spectra as a function of frequency,
+and (for a single channel) as a function of time.  This is used to
+trim the harvesting to just the ES looks.  spec_test1 gives index
+limits used by spec_test2 and fit_run.  spec_test2 plots obs and
+calc together, and fit_run fits obs to calcs.
+
+Directories
+------------
+reports        - final reports
+source         - common source code
+inst_data      - instrument data, mainly from ccast
+mm-dd_*_s?_*   - tests by date, segment, side, and gas
+harvest_??     - harvest notes and scripts, p
+
+Test Scripts
+-------------
+fit_run   - set up test params, call fit_tran, plot results;
+    fit_run -> fit_tran -> cmp_tran
+
+fit_plots - FOV breakouts and other plots, followup to fit_run
+
+spec_test1 - quick look at gas cell count spectra with data from
+    ccast/MITreader380b/read_cris_ccsds and ccast/source routines
+    inst_params and igm2spec
+
+spec_test2 - a basic comparison of observed and calculated gas cell
+    transmittance, without any fitting, using ccast libs and kc2cris
+    from the airs_decon package
+
+Functions
+----------
+cmp_tran  - compare observed and calculated transmittances
+fit_tran  - find wlaser deltas to match obs and calc
+dat2mat   - call read_cris_ccsds on harvested data
+read_ccs  - read and tabulate selected CCS fields
+read_igm  - simple wrapper to read IGMs with the MIT reader
+fit_info  - print fit_tran residuals and weights
+fovcolors - 9 distinct colors for FOV plots
+fovnames  -  FOV names for plot legend
+

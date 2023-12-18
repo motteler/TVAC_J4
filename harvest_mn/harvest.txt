@@ -1,0 +1,126 @@
+
+Dec 2023 CrIS J4 MN Plateau 22
+-------------------------------
+
+TVAC analysis home:
+  /asl/cris/tvac_j4/extracted/hourly_archive/J4
+
+check for tcr and cmd files
+  ls SQLLOGS/2023/
+
+browse CCS data
+  ls TEM_Collection/CCS/Collection/2023/12_Dec/
+
+browse packet data
+  ls Collection/2023/12_Dec
+
+notes 
+ T1 = hot, T2 = cold
+ packets are 8 seconds long
+
+MN side 1 SW CO
+------------------
+do the harvest
+hh=~/cris/tvac_j4/12-10_mn_s1_CO
+
+ET1 times from log
+12/10/2023 08:15:02.435
+12/10/2023 08:29:17.212
+cat Collection/2023/12_Dec/10/0800/20231210_08_{15..29}_??_???.dat > $hh/ET1.dat
+
+ET2 times from log
+12/10/2023 13:06:26.493
+12/10/2023 13:23:49.077
+cat Collection/2023/12_Dec/10/1300/20231210_13_{06..23}_??_???.dat > $hh/ET2.dat
+
+FT2 times from log
+12/10/2023 10:41:48.481
+12/10/2023 10:57:17.099
+cat Collection/2023/12_Dec/10/1000/20231210_10_{41..57}_??_???.dat > $hh/FT2.dat
+
+FT1 times from log
+12/10/2023 08:50:05.792
+12/10/2023 09:05:43.144
+cat Collection/2023/12_Dec/10/0800/20231210_08_{50..59}_??_???.dat > $hh/FT1.dat
+cat Collection/2023/12_Dec/10/0900/20231210_09_{00..05}_??_???.dat >> $hh/FT1.dat
+
+MN side 1 MW CH4
+------------------
+do the harvest
+hh=~/cris/tvac_j4/12-09_mn_s1_CH4
+
+ET1 times from log
+12/10/2023 04:50:46.874
+12/10/2023 05:05:47.194
+cat Collection/2023/12_Dec/10/0400/20231210_04_{50..59}_??_???.dat > $hh/ET1.dat
+cat Collection/2023/12_Dec/10/0500/20231210_05_{00..05}_??_???.dat >> $hh/ET1.dat
+
+ET2 times from log
+12/9/2023 23:04:20.753
+12/9/2023 23:21:31.257
+cat Collection/2023/12_Dec/09/2300/20231209_23_{04..21}_??_???.dat > $hh/ET2.dat
+
+FT2 times from log
+12/9/2023  23:48:52.880
+12/10/2023 00:05:14.261
+cat Collection/2023/12_Dec/09/2300/20231209_23_{48..59}_??_???.dat > $hh/FT2.dat
+cat Collection/2023/12_Dec/10/0000/20231210_00_{00..05}_??_???.dat >> $hh/FT2.dat
+
+FT1 times from log
+12/10/2023 02:22:07.031
+12/10/2023 02:37:01.306
+cat Collection/2023/12_Dec/10/0200/20231210_02_{22..37}_??_???.dat > $hh/FT1.dat
+
+MN side 1 LW CO2
+------------------
+do the harvest
+hh=~/cris/tvac_j4/12-09_mn_s1_CO2
+
+ET1 times from log
+12/9/2023 14:21:01.206
+12/9/2023 14:37:30.429
+cat Collection/2023/12_Dec/09/1400/20231209_14_{21..37}_??_???.dat > $hh/ET1.dat
+
+ET2 times from log
+12/9/2023 21:24:36.683
+12/9/2023 21:41:45.294
+cat Collection/2023/12_Dec/09/2100/20231209_21_{24..41}_??_???.dat > $hh/ET2.dat
+
+FT2 times from log
+12/9/2023 18:48:02.220
+12/9/2023 19:00:58.393
+cat Collection/2023/12_Dec/09/1800/20231209_18_{48..59}_??_???.dat > $hh/FT2.dat
+cat Collection/2023/12_Dec/09/1900/20231209_19_{00..00}_??_???.dat >> $hh/FT2.dat
+
+FT1 times from log
+12/9/2023 15:19:09.449
+12/9/2023 15:33:14.364
+cat Collection/2023/12_Dec/09/1500/20231209_15_{19..33}_??_???.dat > $hh/FT1.dat
+
+MN side 2 LW CO2
+------------------
+do the harvest
+hh=~/cris/tvac_j4/12-02_mn_s2_CO2
+
+ET1 times from log
+12/2/2023 05:26:08.000
+12/2/2023 05:39:43.000
+cat Collection/2023/12_Dec/02/0500/20231202_05_{26..39}_??_???.dat > $hh/ET1.dat
+
+ET2 times from log
+12/2/2023 12:53:33.347
+12/2/2023 13:07:58.606
+cat Collection/2023/12_Dec/02/1200/20231202_12_{53..59}_??_???.dat > $hh/ET2.dat
+cat Collection/2023/12_Dec/02/1300/20231202_13_{00..07}_??_???.dat >> $hh/ET2.dat
+
+FT2 times from log
+12/2/2023 09:56:05.000
+12/2/2023 10:12:13.000
+cat Collection/2023/12_Dec/02/0900/20231202_09_{56..59}_??_???.dat > $hh/FT2.dat
+cat Collection/2023/12_Dec/02/1000/20231202_10_{00..12}_??_???.dat >> $hh/FT2.dat
+
+FT1 times from log
+12/2/2023 06:05:37.000
+12/2/2023 06:19:30.000
+cat Collection/2023/12_Dec/02/0600/20231202_06_{05..19}_??_???.dat > $hh/FT1.dat
+
